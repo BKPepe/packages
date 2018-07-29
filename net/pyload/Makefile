@@ -9,15 +9,14 @@ PKG_NAME:=pyload
 PKG_VERSION:=0.4.9
 PKG_REV:=bbb3c9c367ae389990e37e68eabf1420362efbec
 PKG_RELEASE:=2
+PKG_MAINTAINER:=Josef Schlehofer <pepe.schlehofer@gmail.com>
+PKG_LICENSE:=GPL-3.0
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/pyload/pyload.git
 
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_REV).tar.gz
-
-PKG_MAINTAINER:=Josef Schlehofer <pepe.schlehofer@gmail.com>
-PKG_LICENSE:=GPL-3.0
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)/
 
@@ -29,8 +28,8 @@ define Package/pyload
   SECTION:=net
   CATEGORY:=Network
   DEPENDS:=  \
-    +python +pyopenssl +python-curl +python-crypto \
-    +python-expat +python-imaging-library +python-sqlite3 +js \
+    +python +python-openssl +python-curl +python-crypto \
+    +python-imaging-library +python-sqlite3 +js \
     +tesseract +unrar
 endef
 
