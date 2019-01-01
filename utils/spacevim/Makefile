@@ -19,7 +19,7 @@ PKG_SOURCE_URL:=https://codeload.github.com/SpaceVim/SpaceVim/tar.gz/v$(PKG_VERS
 PKG_HASH:=01b9a4fadb991dd3707ef12ba9ffe1f6d57e119f5d9bb9634e89cd8e130f41bf
 
 PKG_MAINTAINER:=Josef Schlehofer <pepe.schlehofer@gmail.com>
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -32,15 +32,13 @@ define Package/spacevim/Default
 endef
 
 define Package/spacevim/description
-	Modern vim distribution.\
-	SpaceVim manages collections of plugins in layers. \
+	Modern vim distribution. SpaceVim manages collections of plugins in layers.
 	It is inspirated by spacemacs.
 endef
 
 define Package/spacevim/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/vim_normal $(1)/usr/bin/vim
-	$(INSTALL_DIR) $(1)/usr/share/vim
+	$(INSTALL_DIR) $(1)/usr/share/spacevim
 	$(INSTALL_CONF) ./files/vimrc $(1)/usr/share/vim/vimrc
 endef
 
