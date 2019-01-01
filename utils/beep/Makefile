@@ -8,15 +8,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=beep
-PKG_REV:=0d790fa45777896749a885c3b93b2c1476d59f20
 PKG_VERSION:=1.3
-PKG_RELEASE:=1
+PKG_REV:=f8c6cbbceb3776aa64397cdf856e50f3bc4d8332
+PKG_RELEASE:=2
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
-PKG_SOURCE_URL:=https://github.com/johnath/beep.git
+PKG_SOURCE_URL:=https://github.com/ndim/beep.git
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+
 PKG_SOURCE_VERSION:=$(PKG_REV)
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_LICENSE:=GPL-2.0
 PKG_LICENSE_FILES:=COPYING
@@ -28,11 +29,11 @@ define Package/beep
   CATEGORY:=Sound
   DEPENDS:=@(TARGET_x86||TARGET_x86_64) +kmod-pcspkr
   TITLE:=Play beep sounds through a PC speaker
-  URL:=http://johnath.com/beep/README
+  URL:=http://johnath.com/beep/
 endef
 
 define Package/beep/description
-	This program plays beeps through the PC speaker
+	Plays beeps through the PC speaker
 endef
 
 MAKE_FLAGS += \
