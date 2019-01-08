@@ -7,7 +7,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=spacevim
+PKG_NAME:=SpaceVim
 PKG_VERSION:=1.0.0
 PKG_RELEASE:=1
 
@@ -23,23 +23,23 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/spacevim/Default
+define Package/SpaceVim
   SECTION:=utils
   CATEGORY:=Utilities
-  DEPENDS:=+libncurses
+  DEPENDS:=+libncurses +neovim
   TITLE:=A modern community-driven vim editor
   URL:=https://spacevim.org/
 endef
 
-define Package/spacevim/description
-	Modern vim distribution. SpaceVim manages collections of plugins in layers.
+define Package/SpaceVim/description
+	Modern Vim distribution. SpaceVim manages collections of plugins in layers.
 	It is inspirated by spacemacs.
 endef
 
-define Package/spacevim/install
+define Package/SpaceVim/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_DIR) $(1)/usr/share/spacevim
 	$(INSTALL_CONF) ./files/vimrc $(1)/usr/share/vim/vimrc
 endef
 
-$(eval $(call BuildPackage,spacevim))
+$(eval $(call BuildPackage,SpaceVim))
