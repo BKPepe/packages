@@ -5,10 +5,8 @@ Author: Jean-Michel Vourgère <nirgal@debian.org>
 Forwarded: no
 Last-Update: 2015-08-11
 
-Index: apache2/server/buildmark.c
-===================================================================
---- apache2.orig/server/buildmark.c
-+++ apache2/server/buildmark.c
+--- a/server/buildmark.c
++++ b/server/buildmark.c
 @@ -17,11 +17,7 @@
  #include "ap_config.h"
  #include "httpd.h"
@@ -22,10 +20,8 @@ Index: apache2/server/buildmark.c
  
  AP_DECLARE(const char *) ap_get_server_built()
  {
-Index: apache2/server/Makefile.in
-===================================================================
---- apache2.orig/server/Makefile.in
-+++ apache2/server/Makefile.in
+--- a/server/Makefile.in
++++ b/server/Makefile.in
 @@ -1,3 +1,4 @@
 +export LC_ALL = C
  

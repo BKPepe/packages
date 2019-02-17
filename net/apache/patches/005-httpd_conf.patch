@@ -1,7 +1,5 @@
-Index: httpd-2.4.25/docs/conf/httpd.conf.in
-===================================================================
---- httpd-2.4.25.orig/docs/conf/httpd.conf.in
-+++ httpd-2.4.25/docs/conf/httpd.conf.in
+--- a/docs/conf/httpd.conf.in
++++ b/docs/conf/httpd.conf.in
 @@ -63,7 +63,6 @@ Listen @@Port@@
  # Example:
  # LoadModule foo_module modules/mod_foo.so
