@@ -9,24 +9,31 @@ PKG_NAME:=pyload
 PKG_VERSION:=0.4.9
 PKG_RELEASE:=1
 
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/pyload/pyload.git
+PKG_SOURCE_VERSION=417e60c044bcf90826948bbc15f913696fbf3de2
+PKG_MIRROR_HASH:=#todo
+	
 PKG_MAINTAINER:=Josef Schlehofer <pepe.schlehofer@gmail.com>
 PKG_LICENSE:=GPL-3.0
-
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/pyload/pyload.git
-PKG_HASH:=#todo
+PKG_LICENSE_FILES:=LICENSE.MD
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/pyload
-  TITLE:=A fast, lightweight and full featured download manager
-  URL:=https://pyload.net
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=  \
-    +python3 +python3-openssl +python3-curl +python3-crypto \
-    +python3-imaging-library +python3-sqlite3 +js \
-    +tesseract +unrar
+  TITLE:=Download Manager
+  URL:=https://pyload.net
+  DEPENDS:= \
+    +python3 \
+		+python3-openssl \
+		+python3-curl \
+		+python3-crypto \
+    +python3-pillow \ #TO-DO
+		+python3-sqlite3 \
+    +tesseract
+		+unrar
 endef
 
 define Package/pyload/install
