@@ -13,6 +13,7 @@ jq \
 gawk \
 gettext \
 git \
+signify-openbsd \
 libncurses5-dev \
 libssl-dev \
 python \
