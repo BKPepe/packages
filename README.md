@@ -1,26 +1,33 @@
-# OpenWrt packages feed
+# NEMEA OpenWrt feed
 
 ## Description
 
-This is the OpenWrt "packages"-feed containing community-maintained build scripts, options and patches for applications, modules and libraries used within OpenWrt.
+This is an OpenWrt package feed containing [NEMEA system](https://github.com/CESNET/Nemea) components and P4 generated [IPFIX exporter](https://github.com/CESNET/NEMEA-Probe) for exporting flow data .
 
-Installation of pre-built packages is handled directly by the **opkg** utility within your running OpenWrt system or by using the [OpenWrt SDK](https://openwrt.org/docs/guide-developer/obtain.firmware.sdk) on a build system.
+![Infrastructure with NEMEA and OpenWRT router](doc/openwrt-scheme.png)
+
+The figure above shows OpenWRT router with running NEMEA flow exporter [flow_meter](https://github.com/CESNET/Nemea-Modules/tree/master/flow_meter).
+Since OpenWRT routers usually use big-endian architecture, it is necessary to use a special module [endiverter](https://github.com/CESNET/Nemea-Modules/tree/master/endiverter) that converts values of UniRec fields to the byte-order that is used on x86 architecture.
+Due to performace reasons, this conversion is not done automatically in libtrap nor UniRec.
 
 ## Usage
 
-This repository is intended to be layered on-top of an OpenWrt buildroot. If you do not have an OpenWrt buildroot installed, see the documentation at: [OpenWrt Buildroot – Installation](https://openwrt.org/docs/guide-developer/build-system/install-buildsystem) on the OpenWrt support site.
+To use these packages, add the following line to the feeds.conf
+in the OpenWrt buildroot:
 
-This feed is enabled by default. To install all its package definitions, run:
 ```
-./scripts/feeds update packages
-./scripts/feeds install -a -p packages
+src-git nemea https://github.com/CESNET/Nemea-OpenWRT
 ```
 
-## License
+To install package definitions, run:
 
-See [LICENSE](LICENSE) file.
- 
-## Package Guidelines
+```
+./scripts/feeds update nemea
+./scripts/feeds install -a -p nemea
+```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) file.
+The NEMEA packages should now appear in `make menuconfig`.
 
+## Munin
+
+NEMEA module flow_meter can report statistics using munin client. See [this guide](https://github.com/CESNET/Nemea-OpenWRT/tree/master/net/nemea-modules/munin/README.md).
