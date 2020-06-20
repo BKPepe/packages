@@ -139,7 +139,7 @@ EOF
 		badhash_msg_regex="HASH does not match "
 		badhash_msg_regex="$badhash_msg_regex|HASH uses deprecated hash,"
 		badhash_msg_regex="$badhash_msg_regex|HASH is missing,"
-		exec_status '^ERROR'"|$badhash_msg_regex" make "package/$pkg_name/check" V=s || RET=1
+		exec_status '^ERROR'"|$badhash_msg_regex" make "package/$pkg_name/check" V=s 2>&1 || RET=1
 
 		echo_blue "=== $pkg_name: quick tests done"
 	done
