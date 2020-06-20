@@ -4,7 +4,7 @@ git:
 
 language: c
 os: linux
-dist: focal
+dist: bionic
 cache:
   directories:
     - $HOME/sdk
