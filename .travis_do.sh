@@ -121,7 +121,7 @@ src-git luci https://github.com/openwrt/luci.git
 EOF
 
 	# enable BUILD_LOG
-	sed -i '1s/^/config BUILD_LOG\n\tbool\n\tdefault y\n\n/' Config-build.in
+	#sed -i '1s/^/config BUILD_LOG\n\tbool\n\tdefault y\n\n/' Config-build.in
 
 	./scripts/feeds update -a > /dev/null
 	./scripts/feeds install -a > /dev/null
