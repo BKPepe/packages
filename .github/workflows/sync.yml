@@ -1,0 +1,18 @@
+name: Sync with upstream
+
+on:
+  schedule:
+  - cron:  "0 * * * *"
+
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Git Sync Action
+      uses: wei/git-sync@v2.0.0
+      with:
+        source_repo: "https://github.com/openwrt/packages.git"
+        source_branch: "refs/remotes/source/*"
+        destination_repo: "https://github.com/BKPepe/packages.git"
+        destination_branch: "refs/heads/*"
+        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
