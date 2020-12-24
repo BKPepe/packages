@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=vim
 PKG_VERSION:=8.2
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 VIMVER:=82
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
@@ -31,7 +31,7 @@ include $(INCLUDE_DIR)/host-build.mk
 define Package/vim/Default
   SECTION:=utils
   CATEGORY:=Utilities
-  DEPENDS:=+libncurses
+  DEPENDS:=+libncurses +libiconv
   TITLE:=Vi IMproved - enhanced vi editor
   URL:=http://www.vim.org/
   SUBMENU:=Editors
