@@ -94,28 +94,16 @@ jobs:
       - name: Store packages
         uses: actions/upload-artifact@v2
         with:
-<<<<<<< HEAD
-          name: ${{env.ARCHIVE_NAME}}-packages
-          path: |
-            *.ipk
-            PKG-INFO
-=======
           name: ${{ matrix.arch}}-${{ matrix.version }}-packages
           path: "*.ipk"
->>>>>>> e7c536e49 (Github Actions some changes to build it every time)
 
       - name: Store logs
         uses: actions/upload-artifact@v2
         with:
-<<<<<<< HEAD
-          name: ${{env.ARCHIVE_NAME}}-logs
+          name: ${{ matrix.arch}}-${{ matrix.version }}-logs
           path: |
             logs/
             PKG-INFO
-=======
-          name: ${{ matrix.arch}}-${{ matrix.version }}-logs
-          path: logs/
->>>>>>> e7c536e49 (Github Actions some changes to build it every time)
 
       - name: Remove logs
         run: sudo rm -rf logs/ || true
