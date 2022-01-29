@@ -8,7 +8,7 @@ FROM debian:10
 # v1.0.3 - Verify usign signatures
 # v1.0.4 - Add support for Python3
 # v1.0.5 - Add 19.07 public keys, verify keys
-# v1.0.6 - Add 21.02 public keys, update Debian image to version 10
+# v1.0.6 - Add 21.02 public keys, update Debian image to version 10, add rsync
 
 RUN apt update && apt install -y \
 build-essential \
@@ -24,6 +24,7 @@ python \
 python3 \
 signify-openbsd \
 subversion \
+rsync \
 time \
 unzip \
 wget \
