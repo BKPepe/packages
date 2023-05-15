@@ -27,7 +27,6 @@ python3 \
 python3-distutils \
 signify-openbsd \
 subversion \
-rsync \
 time \
 unzip \
 wget \
