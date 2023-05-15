@@ -19,6 +19,7 @@ jq \
 gawk \
 gettext \
 git \
+gzip \
 libncurses5-dev \
 libssl-dev \
 python \
