@@ -1,4 +1,4 @@
-FROM debian:10
+FROM debian:11
 
 
 # Configuration version history
@@ -10,6 +10,7 @@ FROM debian:10
 # v1.0.5 - Add 19.07 public keys, verify keys
 # v1.0.6 - Add 21.02 public keys, update Debian image to version 10, add rsync
 # v1.0.7 - Add 22.03 public keys, 18.06 v2 gpg key, 18.06 usign key
+# v1.0.8 - Add python3-distutils, gzip and removed rsync, update Debian image to version 11
 
 RUN apt update && apt install -y \
 build-essential \
