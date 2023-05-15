@@ -23,6 +23,7 @@ libncurses5-dev \
 libssl-dev \
 python \
 python3 \
+python3-distutils \
 signify-openbsd \
 subversion \
 rsync \
