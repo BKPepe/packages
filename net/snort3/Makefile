@@ -21,37 +21,22 @@ PKG_CPE_ID:=cpe:/a:snort:snort
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
-ifneq ($(findstring powerpc,$(CONFIG_ARCH))$(findstring mips,$(CONFIG_ARCH)),)
-  CMAKE_OPTIONS += \
-	-DENABLE_TCMALLOC=OFF
-else
-  CMAKE_OPTIONS += \
-	-DENABLE_TCMALLOC=ON \
-	-DTCMALLOC_LIBRARIES=$(STAGING_DIR)/usr/lib/libtcmalloc.so
-  EXTRAGP:= +gperftools-runtime
-endif
-
-ifneq ($(findstring x86_64,$(CONFIG_ARCH))$(findstring aarch64,$(CONFIG_ARCH)),)
-  CMAKE_OPTIONS += \
-	-DENABLE_HYPERSCAN=ON \
-	-DHS_INCLUDE_DIRS=$(STAGING_DIR)/usr/include/hs
-else
-  CMAKE_OPTIONS += \
-	-DENABLE_HYPERSCAN=OFF
-endif
-
 define Package/snort3
   SUBMENU:=Firewall
   SECTION:=net
   CATEGORY:=Network
   DEPENDS:=+libstdcpp +libdaq3 +libdnet +libopenssl +libpcap +libpcre2 \
     +libpthread +libuuid +zlib +libhwloc +libtirpc @HAS_LUAJIT_ARCH +luajit +libatomic \
-    +kmod-nft-queue +liblzma +ucode +ucode-mod-fs +ucode-mod-uci $(EXTRAGP) \
-    +PACKAGE_snort3&&TARGET_x86_64:vectorscan-runtime \
-    +PACKAGE_snort3&&aarch64:vectorscan-runtime
+    +kmod-nft-queue +liblzma +ucode +ucode-mod-fs +ucode-mod-uci \
+    +SNORT3_ENABLE_TCMALLOC:gperftools-runtime \
+    +SNORT3_ENABLE_VECTORSCAN:vectorscan-runtime
   TITLE:=Lightweight Network Intrusion Detection System
   URL:=http://www.snort.org/
   MENU:=1
+endef
+
+define Package/snort3/config
+  source "$(SOURCE)/Config.in"
 endef
 
 define Package/snort3/description
