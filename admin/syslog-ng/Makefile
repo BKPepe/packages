@@ -108,6 +108,11 @@ CONFIGURE_ARGS +=  \
 	--with-librabbitmq-client=no \
 	--with-mongoc=no
 
+ifdef CONFIG_KERNEL_IO_URING
+  TARGET_CPPFLAGS += -I$(STAGING_DIR)/usr/include
+  TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib -luring
+endif
+
 CONFIGURE_VARS += \
 	$(if $(CONFIG_HOST_OS_MACOS),PATH=$(FAKEUNAME_PATH):$(PATH)) \
 	LIBDBI_CFLAGS="-I$(STAGING_DIR)/usr/include"
