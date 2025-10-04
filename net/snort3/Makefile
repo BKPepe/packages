@@ -28,11 +28,15 @@ define Package/snort3
   DEPENDS:=+libstdcpp +libdaq3 +libdnet +libopenssl +libpcap +libpcre2 \
     +libpthread +libuuid +zlib +libhwloc +libtirpc @HAS_LUAJIT_ARCH +luajit +libatomic \
     +kmod-nft-queue +liblzma +ucode +ucode-mod-fs +ucode-mod-uci \
-    +PACKAGE_gperftools-runtime:gperftools-runtime \
-    +PACKAGE_vectorscan-runtime:vectorscan-runtime
+    +SNORT3_ENABLE_TCMALLOC:gperftools-runtime \
+    +SNORT3_ENABLE_VECTORSCAN:vectorscan-runtime
   TITLE:=Lightweight Network Intrusion Detection System
   URL:=http://www.snort.org/
   MENU:=1
+endef
+
+define Package/snort3/config
+  source "$(SOURCE)/Config.in"
 endef
 
 define Package/snort3/description

@@ -1,0 +1,13 @@
+if PACKAGE_snort3
+
+config SNORT3_ENABLE_TCMALLOC
+	bool
+	depends on !(powerpc || powerpc64 || mips || mipsel || mips64)
+	default y
+
+config SNORT3_ENABLE_VECTORSCAN
+	bool
+	depends on (x86_64 || aarch64)
+	default y
+
+endif
