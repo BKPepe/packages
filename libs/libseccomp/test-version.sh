@@ -3,8 +3,8 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+libseccomp|\
+scmp_sys_resolver)
 	exit 0
 	;;
 

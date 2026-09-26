@@ -3,9 +3,8 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
-	exit 0
+swanmon)
+	swanmon help 2>&1 | grep 'Usage: swanmon'
 	;;
 
 *)

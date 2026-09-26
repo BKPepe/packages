@@ -2,9 +2,9 @@
 
 # shellcheck shell=busybox
 
+#xsltproc doesn't say it's own version but only depends
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+xsltproc|libxslt|libexslt)
 	exit 0
 	;;
 

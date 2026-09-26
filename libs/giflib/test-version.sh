@@ -2,9 +2,11 @@
 
 # shellcheck shell=busybox
 
+# None of the giflib-utils executables print the package version.
+# Skip the generic version probe.
+
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+giflib|giflib-utils)
 	exit 0
 	;;
 

@@ -3,8 +3,7 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+xupnpd)
 	exit 0
 	;;
 

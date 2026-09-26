@@ -5,15 +5,8 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-golang?.??-doc|\
-golang?.??-misc|\
-golang?.??-src|\
-golang?.??-tests)
+cgi-io)
 	exit 0
-	;;
-
-golang?.??)
-	go version | grep -F " go$PKG_VERSION "
 	;;
 
 *)

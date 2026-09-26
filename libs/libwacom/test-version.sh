@@ -3,8 +3,7 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+libwacom)
 	exit 0
 	;;
 

@@ -3,8 +3,8 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+libexpat)
+	# Shared libraries
 	exit 0
 	;;
 

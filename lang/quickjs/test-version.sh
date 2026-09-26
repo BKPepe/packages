@@ -3,9 +3,8 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
-	exit 0
+quickjs)
+	qjs --help | grep -F "${PKG_VERSION//./-}"
 	;;
 
 *)

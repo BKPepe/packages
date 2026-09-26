@@ -3,8 +3,8 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+python3-tabulate|\
+python3-tabulate-src)
 	exit 0
 	;;
 

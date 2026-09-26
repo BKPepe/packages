@@ -3,8 +3,8 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+mikrotik-btest)
+	# Do not provide version information
 	exit 0
 	;;
 

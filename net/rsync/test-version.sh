@@ -3,9 +3,13 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+rrsync|\
+rsyncd)
 	exit 0
+	;;
+
+rsync)
+	rsync --version | grep -F "$PKG_VERSION"
 	;;
 
 *)

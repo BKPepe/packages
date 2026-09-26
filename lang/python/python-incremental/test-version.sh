@@ -3,11 +3,9 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+python3-incremental | python3-incremental-src)
 	exit 0
 	;;
-
 *)
 	echo "Untested package: $PKG_NAME" >&2
 	exit 1

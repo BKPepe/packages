@@ -3,8 +3,13 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+alsa-lib)
+	# Shared library
+	exit 0
+	;;
+
+aserver)
+	# aserver does not implement --version
 	exit 0
 	;;
 

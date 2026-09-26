@@ -3,8 +3,12 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+ksmbd-server)
+	/usr/sbin/ksmbd.mountd -V 2>&1 | grep -F "$PKG_VERSION"
+	;;
+
+ksmbd-avahi-service|\
+ksmbd-hotplug)
 	exit 0
 	;;
 

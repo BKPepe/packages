@@ -3,8 +3,10 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+krb5-libs|\
+krb5-server|\
+krb5-server-extras|\
+krb5-client)
 	exit 0
 	;;
 

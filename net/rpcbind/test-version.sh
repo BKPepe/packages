@@ -3,8 +3,9 @@
 # shellcheck shell=busybox
 
 case "$PKG_NAME" in
-libucontext|\
-libucontext-tests)
+rpcbind)
+	# The -v flag is implemented in version 1.2.8+
+	# rpcbind -v 2>&1 | grep -F "$PKG_VERSION"
 	exit 0
 	;;
 
